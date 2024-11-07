@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvj2m2585fyep"]
+
+[ext_resource type="Texture2D" uid="uid://crqbokxfylf5o" path="res://sprite_enemy_2.png" id="1_p8po4"]
+[ext_resource type="Script" path="res://enemy_2.gd" id="2_tmjbq"]
+
+[node name="enemigo" type="Sprite2D"]
+rotation = -3.14102
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p8po4")
+script = ExtResource("2_tmjbq")
+
+[node name="Area2D" type="Area2D" parent="." groups=["enemigo"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(15.0604, 60.4232, 14.1714, 93.7447, 3.73043, 110.139, -9.59816, 109.783, -22.3044, 86.1024, -21.771, 66.1095, -58.4246, 65.1316, -61.3122, 48.3819, -87.6138, 34.3421, -83.4815, 4.44167, -93.478, 4.17496, -116.181, -19.7724, -128.976, -40.1209, -88.2788, -65.7112, -73.7944, -108.674, -36.8741, -117.692, -13.638, -113.738, 9.77597, -116.447, 16.3514, -112.937, 39.6764, -112.315, 69.5768, -108.183, 79.2176, -94.5875, 85.1707, -67.7525, 101.298, -47.3151, 124.445, -40.0284, 127.422, -26.6109, 117.07, -13.5491, 106.362, 12.8414, 86.0135, 25.6366, 75.4836, 45.3627, 51.7141, 61.4011, 28.1223, 70.7753)
+
+[node name="Timer" type="Timer" parent="." groups=["enemigo"]]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

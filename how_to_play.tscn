@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://nww3fl62k81p"]
+
+[ext_resource type="Script" path="res://how_to_play.gd" id="1_75smk"]
+[ext_resource type="Texture2D" uid="uid://8g3c0x7xj6s5" path="res://game_background.png" id="1_g2wr0"]
+[ext_resource type="Texture2D" uid="uid://4pkjivk1spc4" path="res://how_to_play.png" id="2_hx0ct"]
+[ext_resource type="Texture2D" uid="uid://bwd5t80gygrlw" path="res://Ok_BTN.png" id="3_pihw6"]
+[ext_resource type="AudioStream" uid="uid://di5pkp7mg03p0" path="res://Menu Assets/snd_menu_button.wav" id="5_gcrdd"]
+[ext_resource type="AudioStream" uid="uid://cj7yfuw2e337v" path="res://Menu Assets/snd_music_game_2.mp3" id="6_y3i7t"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_75smk")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(959.556, 538.5)
+scale = Vector2(1.00463, 1.00463)
+texture = ExtResource("1_g2wr0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 477.0
+offset_top = 47.0
+offset_right = 1417.0
+offset_bottom = 827.0
+size_flags_vertical = 8
+texture = ExtResource("2_hx0ct")
+
+[node name="avanzerBTN" type="TextureButton" parent="."]
+offset_left = 839.0
+offset_top = 856.0
+offset_right = 1049.0
+offset_bottom = 1066.0
+scale = Vector2(0.75, 0.75)
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_pihw6")
+stretch_mode = 3
+
+[node name="btn_pressed_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gcrdd")
+
+[node name="menu_background_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_y3i7t")
+autoplay = true
+
+[connection signal="pressed" from="avanzerBTN" to="." method="_on_avanzer_btn_pressed"]

@@ -1,0 +1,99 @@
+[gd_scene load_steps=9 format=3 uid="uid://hyhiwdw88ves"]
+
+[ext_resource type="Script" path="res://Menu Assets/menu.gd" id="1_8aiwg"]
+[ext_resource type="Texture2D" uid="uid://c4gu28hv0nhky" path="res://Menu Assets/UI_BACKGROUND.png" id="1_ltvwm"]
+[ext_resource type="FontFile" uid="uid://dm8hlnh7qdi5p" path="res://Menu Assets/menu_font.otf" id="2_uf3i3"]
+[ext_resource type="Texture2D" uid="uid://bui11sfkxnj0k" path="res://Menu Assets/Start_BTN.png" id="3_338qd"]
+[ext_resource type="Texture2D" uid="uid://b2aoexcp648yj" path="res://Menu Assets/Exit_BTN.png" id="4_dwm5t"]
+[ext_resource type="AudioStream" uid="uid://cj7yfuw2e337v" path="res://Menu Assets/snd_music_game_2.mp3" id="5_ddqjv"]
+[ext_resource type="AudioStream" uid="uid://di5pkp7mg03p0" path="res://Menu Assets/snd_menu_button.wav" id="7_a0moc"]
+[ext_resource type="Texture2D" uid="uid://bc44fjrrgwdou" path="res://Menu Assets/Sound_BTN.png" id="8_4xa0b"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8aiwg")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ltvwm")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -401.0
+offset_bottom = -292.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.886275, 0.956863, 0.952941, 1)
+theme_override_fonts/font = ExtResource("2_uf3i3")
+theme_override_font_sizes/font_size = 90
+text = "Galactic Guardian
+"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -600.0
+offset_right = 210.0
+offset_bottom = -354.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.00164, 1)
+alignment = 1
+
+[node name="startBtn" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_338qd")
+stretch_mode = 3
+
+[node name="exitBtn" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_dwm5t")
+stretch_mode = 3
+
+[node name="menu_background_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ddqjv")
+autoplay = true
+
+[node name="btn_pressed_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_a0moc")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 907.0
+offset_right = 258.0
+offset_bottom = 1117.0
+scale = Vector2(0.75, 0.75)
+
+[node name="btn_sound" type="TextureButton" parent="VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("8_4xa0b")
+stretch_mode = 0
+
+[connection signal="pressed" from="VBoxContainer/startBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/exitBtn" to="." method="_on_exit_btn_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/exitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer2/btn_sound" to="." method="_on_btn_sound_pressed"]

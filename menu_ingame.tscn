@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://bumeje71mfyyv"]
+
+[ext_resource type="Script" path="res://menu_ingame.gd" id="1_l7w5a"]
+[ext_resource type="Texture2D" uid="uid://dqlk63g8ko38" path="res://Menu Assets/menu_pause.png" id="2_0jfre"]
+[ext_resource type="Texture2D" uid="uid://bmaict6mhmtal" path="res://Menu Assets/RESUMEN_BTN.png" id="3_vog7r"]
+[ext_resource type="Texture2D" uid="uid://b2aoexcp648yj" path="res://Menu Assets/Exit_BTN.png" id="4_48y44"]
+[ext_resource type="AudioStream" uid="uid://di5pkp7mg03p0" path="res://Menu Assets/snd_menu_button.wav" id="5_34xmm"]
+
+[node name="Node2D" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_l7w5a")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.0745098, 0.0745098, 0.0745098, 0.423529)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -470.0
+offset_top = -367.5
+offset_right = 470.0
+offset_bottom = 367.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0jfre")
+
+[node name="resume_btn" type="TextureButton" parent="TextureRect"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.829
+offset_top = -100.5
+offset_right = 218.171
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_vog7r")
+
+[node name="exit_btn" type="TextureButton" parent="TextureRect"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.848
+offset_top = 51.5
+offset_right = 226.152
+offset_bottom = 172.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_48y44")
+
+[node name="btn_pressed_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_34xmm")
+
+[connection signal="pressed" from="TextureRect/resume_btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="TextureRect/exit_btn" to="." method="_on_exit_btn_pressed"]

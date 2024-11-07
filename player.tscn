@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsnilnfvh87n4"]
+
+[ext_resource type="Texture2D" uid="uid://cxaawcwgocmsr" path="res://DurrrSpaceShip.png" id="1_klifu"]
+[ext_resource type="Script" path="res://Player.gd" id="2_4qh7u"]
+
+[node name="Sprite2D" type="Sprite2D"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_klifu")
+script = ExtResource("2_4qh7u")
+
+[node name="recall" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-10.6667, -31.3333, -3.33333, -36, -3.33333, -16, 0, -18.6667, 1.33333, -15.3333, 1.33333, -39.3333, 12, -30, 11.3333, -14.6667, 32, 0.666667, 16, 0.666667, 28, 8, 16.6667, 10, 36.6667, 18, 38, 26.6667, 32.6667, 28, 31.3333, 33.3333, 25.3333, 27.3333, 12.6667, 28, 10, 40, -10.6667, 40, -16, 28, -30, 28.6667, -30.6667, 32.6667, -37.3333, 29.3333, -39.3333, 16.6667, -26, 14.6667, -26, 10.6667, -28.6667, 6, -18.6667, 2.66667, -34, 2.66667, -11.3333, -13.3333)
+
+[connection signal="timeout" from="recall" to="." method="_on_recall_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
