@@ -196,16 +196,9 @@ texture_normal = ExtResource("16_a1vf7")
 texture_pressed = ExtResource("16_a1vf7")
 shape = SubResource("CircleShape2D_h2rnp")
 
-[node name="TouchScreenButtonF" type="TouchScreenButton" parent="ControlsTouch"]
-position = Vector2(3478.87, 243.682)
-scale = Vector2(1.42958, 1.45487)
-texture_normal = ExtResource("16_a1vf7")
-texture_pressed = ExtResource("16_a1vf7")
-shape = SubResource("CircleShape2D_h2rnp")
-
 [node name="TouchScreenButtonR" type="TouchScreenButton" parent="ControlsTouch"]
-position = Vector2(3772.89, 64.982)
-scale = Vector2(0.757042, 0.815884)
+position = Vector2(3522.89, 64.982)
+scale = Vector2(1.75705, 1.81949)
 texture_normal = ExtResource("16_a1vf7")
 texture_pressed = ExtResource("16_a1vf7")
 shape = SubResource("CircleShape2D_h2rnp")
@@ -218,9 +211,14 @@ texture_pressed = ExtResource("16_a1vf7")
 shape = SubResource("CircleShape2D_h2rnp")
 
 [connection signal="pressed" from="ControlsTouch/TouchScreenButtonW" to="ControlsTouch" method="_on_touch_screen_button_w_pressed"]
+[connection signal="released" from="ControlsTouch/TouchScreenButtonW" to="ControlsTouch" method="_on_touch_screen_button_w_released"]
 [connection signal="pressed" from="ControlsTouch/TouchScreenButtonA" to="ControlsTouch" method="_on_touch_screen_button_a_pressed"]
+[connection signal="released" from="ControlsTouch/TouchScreenButtonA" to="ControlsTouch" method="_on_touch_screen_button_a_released"]
 [connection signal="pressed" from="ControlsTouch/TouchScreenButtonS" to="ControlsTouch" method="_on_touch_screen_button_s_pressed"]
+[connection signal="released" from="ControlsTouch/TouchScreenButtonS" to="ControlsTouch" method="_on_touch_screen_button_s_released"]
 [connection signal="pressed" from="ControlsTouch/TouchScreenButtonD" to="ControlsTouch" method="_on_touch_screen_button_d_pressed"]
-[connection signal="pressed" from="ControlsTouch/TouchScreenButtonF" to="ControlsTouch" method="_on_touch_screen_button_f_pressed"]
+[connection signal="released" from="ControlsTouch/TouchScreenButtonD" to="ControlsTouch" method="_on_touch_screen_button_d_released"]
 [connection signal="pressed" from="ControlsTouch/TouchScreenButtonR" to="ControlsTouch" method="_on_touch_screen_button_r_pressed"]
+[connection signal="released" from="ControlsTouch/TouchScreenButtonR" to="ControlsTouch" method="_on_touch_screen_button_r_released"]
 [connection signal="pressed" from="ControlsTouch/TouchScreenButtonE" to="ControlsTouch" method="_on_touch_screen_button_e_pressed"]
+[connection signal="released" from="ControlsTouch/TouchScreenButtonE" to="ControlsTouch" method="_on_touch_screen_button_e_released"]
