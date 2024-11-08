@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bumeje71mfyyv"]
 
 [ext_resource type="Script" path="res://menu_ingame.gd" id="1_l7w5a"]
-[ext_resource type="Texture2D" uid="uid://dqlk63g8ko38" path="res://Menu Assets/menu_pause.png" id="2_0jfre"]
-[ext_resource type="Texture2D" uid="uid://bmaict6mhmtal" path="res://Menu Assets/RESUMEN_BTN.png" id="3_vog7r"]
-[ext_resource type="Texture2D" uid="uid://b2aoexcp648yj" path="res://Menu Assets/Exit_BTN.png" id="4_48y44"]
-[ext_resource type="AudioStream" uid="uid://di5pkp7mg03p0" path="res://Menu Assets/snd_menu_button.wav" id="5_34xmm"]
+[ext_resource type="Texture2D" uid="uid://dqlk63g8ko38" path="res://MenuAssets/menu_pause.png" id="2_0jfre"]
+[ext_resource type="Texture2D" uid="uid://bmaict6mhmtal" path="res://MenuAssets/RESUMEN_BTN.png" id="3_vog7r"]
+[ext_resource type="Texture2D" uid="uid://b2aoexcp648yj" path="res://MenuAssets/Exit_BTN.png" id="4_48y44"]
+[ext_resource type="AudioStream" uid="uid://di5pkp7mg03p0" path="res://MenuAssets/snd_menu_button.wav" id="5_34xmm"]
 
 [node name="Node2D" type="CanvasLayer"]
 process_mode = 3

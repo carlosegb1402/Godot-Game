@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://arena.gd" id="1_4xuhd"]
 [ext_resource type="PackedScene" uid="uid://dsnilnfvh87n4" path="res://player.tscn" id="1_juo8i"]
 [ext_resource type="Texture2D" uid="uid://8g3c0x7xj6s5" path="res://game_background.png" id="2_wvkoy"]
-[ext_resource type="FontFile" uid="uid://dm8hlnh7qdi5p" path="res://Menu Assets/menu_font.otf" id="4_ve7b5"]
+[ext_resource type="FontFile" uid="uid://dm8hlnh7qdi5p" path="res://MenuAssets/menu_font.otf" id="4_ve7b5"]
 [ext_resource type="Script" path="res://score.gd" id="5_gx2gi"]
 [ext_resource type="Texture2D" uid="uid://cwpbf2dk31u5w" path="res://870726cd-bdf5-45c8-9694-249d4d174941.png" id="6_pxifb"]
 [ext_resource type="Script" path="res://background.gd" id="7_au5qa"]

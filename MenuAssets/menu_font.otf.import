@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dm8hlnh7qdi5p"
-path="res://.godot/imported/menu_font.otf-d133a489a19bc454075a7c118e45b205.fontdata"
+path="res://.godot/imported/menu_font.otf-a7124db2887e4fde0cb67888b73a8636.fontdata"
 
 [deps]
 
-source_file="res://Menu Assets/menu_font.otf"
-dest_files=["res://.godot/imported/menu_font.otf-d133a489a19bc454075a7c118e45b205.fontdata"]
+source_file="res://MenuAssets/menu_font.otf"
+dest_files=["res://.godot/imported/menu_font.otf-a7124db2887e4fde0cb67888b73a8636.fontdata"]
 
 [params]
 

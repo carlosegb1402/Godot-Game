@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://8g3c0x7xj6s5" path="res://game_background.png" id="1_g2wr0"]
 [ext_resource type="Texture2D" uid="uid://4pkjivk1spc4" path="res://how_to_play.png" id="2_hx0ct"]
 [ext_resource type="Texture2D" uid="uid://bwd5t80gygrlw" path="res://Ok_BTN.png" id="3_pihw6"]
-[ext_resource type="AudioStream" uid="uid://di5pkp7mg03p0" path="res://Menu Assets/snd_menu_button.wav" id="5_gcrdd"]
-[ext_resource type="AudioStream" uid="uid://cj7yfuw2e337v" path="res://Menu Assets/snd_music_game_2.mp3" id="6_y3i7t"]
+[ext_resource type="AudioStream" uid="uid://di5pkp7mg03p0" path="res://MenuAssets/snd_menu_button.wav" id="5_gcrdd"]
+[ext_resource type="AudioStream" uid="uid://cj7yfuw2e337v" path="res://MenuAssets/snd_music_game_2.mp3" id="6_y3i7t"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_75smk")

@@ -1,4 +1,4 @@
-extends Sprite2D
+extends CharacterBody2D
 
 var velocidad = 250
 var mov = Vector2.ZERO
@@ -12,6 +12,7 @@ var sound_reload_ammo: AudioStreamPlayer = null
 var death = false  
 var max_vida= Global.vida_player
 var is_reloading=false
+var enemy_exited = false
 
 
 func _ready() -> void:
@@ -51,7 +52,7 @@ func _process(delta: float) -> void:
 		add_child(sound_player) 
 		sound_player.play()
 		Global.ammor-=1  
-		$recall.start()
+		$Sprite2D/recall.start()
 		
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Global.ammor<=0:
 		if not sound_out_of_ammo.is_playing()  and not sound_reload_ammo.is_playing():
@@ -68,7 +69,7 @@ func _process(delta: float) -> void:
 		visible=false
 		death=true
 		await get_tree().create_timer(1).timeout
-		get_tree().change_scene_to_file("res://Menu Assets/menu.tscn")
+		get_tree().change_scene_to_file("res://MenuAssets/menu.tscn")
 		Global.score=0
 		Global.vida_player=3
 		Global.ammor=31
@@ -78,11 +79,21 @@ func _on_recall_timeout() -> void:
 
 var hit_cooldown = false
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enemigo") and not hit_cooldown:
-		Global.vida_player-=1
+	
+	while area.is_in_group("enemigo") and not hit_cooldown:
+		if(Enemy.isdead == false):
+			Global.vida_player-=1
 		hit_cooldown = true
-	await get_tree().create_timer(0.5).timeout
-	hit_cooldown = false
-		
+		await get_tree().create_timer(1.5).timeout
+		hit_cooldown = false
+		if enemy_exited:
+			enemy_exited = false
+			break
 
-		
+
+
+
+
+func _on_area_2d_area_exited(area):
+	enemy_exited = true
+	
