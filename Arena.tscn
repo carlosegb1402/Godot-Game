@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dre7o0sh41fk7"]
+[gd_scene load_steps=18 format=3 uid="uid://dre7o0sh41fk7"]
 
 [ext_resource type="Script" path="res://arena.gd" id="1_4xuhd"]
 [ext_resource type="PackedScene" uid="uid://dsnilnfvh87n4" path="res://player.tscn" id="1_juo8i"]
@@ -14,6 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://b1m45ne1tqpe1" path="res://29706583-d94c-49ee-9cf3-f2d2ad86846f.png" id="11_43mu4"]
 [ext_resource type="Script" path="res://reload_ad.gd" id="12_ovasc"]
 [ext_resource type="PackedScene" uid="uid://bumeje71mfyyv" path="res://menu_ingame.tscn" id="14_ssccl"]
+[ext_resource type="Script" path="res://ControlsTouch.gd" id="15_numha"]
+[ext_resource type="Texture2D" uid="uid://3be7o44dqgbu" path="res://boton.png" id="16_a1vf7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2rnp"]
+radius = 101.25
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_4xuhd")
@@ -151,3 +156,64 @@ metadata/_edit_lock_ = true
 
 [node name="Node2D" parent="." instance=ExtResource("14_ssccl")]
 visible = false
+
+[node name="ControlsTouch" type="Node2D" parent="."]
+position = Vector2(92, 710)
+scale = Vector2(0.568, 0.554)
+script = ExtResource("15_numha")
+
+[node name="TouchScreenButtonW" type="TouchScreenButton" parent="ControlsTouch"]
+scale = Vector2(1, 1)
+texture_normal = ExtResource("16_a1vf7")
+texture_pressed = ExtResource("16_a1vf7")
+shape = SubResource("CircleShape2D_h2rnp")
+
+[node name="TouchScreenButtonA" type="TouchScreenButton" parent="ControlsTouch"]
+position = Vector2(-169.014, 194.946)
+scale = Vector2(0.915493, 0.927798)
+texture_normal = ExtResource("16_a1vf7")
+texture_pressed = ExtResource("16_a1vf7")
+shape = SubResource("CircleShape2D_h2rnp")
+
+[node name="TouchScreenButtonS" type="TouchScreenButton" parent="ControlsTouch"]
+position = Vector2(10.5634, 371.841)
+scale = Vector2(0.957746, 0.971119)
+texture_normal = ExtResource("16_a1vf7")
+texture_pressed = ExtResource("16_a1vf7")
+shape = SubResource("CircleShape2D_h2rnp")
+
+[node name="TouchScreenButtonD" type="TouchScreenButton" parent="ControlsTouch"]
+position = Vector2(202.465, 180.505)
+scale = Vector2(0.957746, 0.971119)
+texture_normal = ExtResource("16_a1vf7")
+texture_pressed = ExtResource("16_a1vf7")
+shape = SubResource("CircleShape2D_h2rnp")
+
+[node name="TouchScreenButtonF" type="TouchScreenButton" parent="ControlsTouch"]
+position = Vector2(2617.96, 254.513)
+scale = Vector2(1.42958, 1.45487)
+texture_normal = ExtResource("16_a1vf7")
+texture_pressed = ExtResource("16_a1vf7")
+shape = SubResource("CircleShape2D_h2rnp")
+
+[node name="TouchScreenButtonR" type="TouchScreenButton" parent="ControlsTouch"]
+position = Vector2(2883.8, 110.108)
+scale = Vector2(0.757042, 0.815884)
+texture_normal = ExtResource("16_a1vf7")
+texture_pressed = ExtResource("16_a1vf7")
+shape = SubResource("CircleShape2D_h2rnp")
+
+[node name="TouchScreenButtonE" type="TouchScreenButton" parent="ControlsTouch"]
+position = Vector2(2982.39, -1203.97)
+scale = Vector2(0.757042, 0.815884)
+texture_normal = ExtResource("16_a1vf7")
+texture_pressed = ExtResource("16_a1vf7")
+shape = SubResource("CircleShape2D_h2rnp")
+
+[connection signal="pressed" from="ControlsTouch/TouchScreenButtonW" to="ControlsTouch" method="_on_touch_screen_button_w_pressed"]
+[connection signal="pressed" from="ControlsTouch/TouchScreenButtonA" to="ControlsTouch" method="_on_touch_screen_button_a_pressed"]
+[connection signal="pressed" from="ControlsTouch/TouchScreenButtonS" to="ControlsTouch" method="_on_touch_screen_button_s_pressed"]
+[connection signal="pressed" from="ControlsTouch/TouchScreenButtonD" to="ControlsTouch" method="_on_touch_screen_button_d_pressed"]
+[connection signal="pressed" from="ControlsTouch/TouchScreenButtonF" to="ControlsTouch" method="_on_touch_screen_button_f_pressed"]
+[connection signal="pressed" from="ControlsTouch/TouchScreenButtonR" to="ControlsTouch" method="_on_touch_screen_button_r_pressed"]
+[connection signal="pressed" from="ControlsTouch/TouchScreenButtonE" to="ControlsTouch" method="_on_touch_screen_button_e_pressed"]

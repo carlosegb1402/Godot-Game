@@ -35,16 +35,18 @@ func _enter_tree() -> void:
 
 func _process(delta: float) -> void:
 	
-	mov.x = int(Input.is_key_pressed(KEY_D))-int(Input.is_key_pressed(KEY_A))
-	mov.y = int(Input.is_key_pressed(KEY_S))-int(Input.is_key_pressed(KEY_W ))
+	mov.x = int(Input.is_action_pressed("Right"))-int(Input.is_action_pressed("Left"))
+	mov.y = int(Input.is_action_pressed("Back"))-int(Input.is_action_pressed("Forward"))
 	look_at(get_global_mouse_position())
 	self.rotation_degrees = self.rotation_degrees +90   
 
 	
 	if death == false:
 		global_position += velocidad*mov*delta
+	if Input.is_action_pressed("Menu"):
+		get_tree().change_scene_to_file("res://MenuAssets/menu.tscn")
 	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Global.creation !=null and reload and death==false and Global.ammor>=1:
+	if Input.is_action_pressed("Fire") and Global.creation !=null and reload and death==false and Global.ammor>=1:
 		Global.instance_node(bullet, global_position, Global.creation)
 		reload=false
 		var sound_player = AudioStreamPlayer.new() 
@@ -54,11 +56,11 @@ func _process(delta: float) -> void:
 		Global.ammor-=1  
 		$Sprite2D/recall.start()
 		
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Global.ammor<=0:
+	if Input.is_action_just_pressed("Fire") and Global.ammor<=0:
 		if not sound_out_of_ammo.is_playing()  and not sound_reload_ammo.is_playing():
 			sound_out_of_ammo.play()
 			
-	if Input.is_key_pressed(KEY_R) and Global.ammor<=6:
+	if Input.is_action_just_pressed("Reload") and Global.ammor<=6:
 		if not sound_reload_ammo.is_playing():
 			sound_reload_ammo.play()
 			await sound_reload_ammo.playing
