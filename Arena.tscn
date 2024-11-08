@@ -24,13 +24,13 @@ radius = 101.25
 script = ExtResource("1_4xuhd")
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(959.556, 538.5)
-scale = Vector2(1.00463, 1.00463)
+position = Vector2(1196.1, 533)
+scale = Vector2(1.2499, 1.005)
 texture = ExtResource("2_wvkoy")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" parent="." instance=ExtResource("1_juo8i")]
-position = Vector2(971, 630)
+position = Vector2(1266, 605)
 metadata/_edit_lock_ = true
 
 [node name="UI" type="Node2D" parent="."]
@@ -46,10 +46,14 @@ metadata/_edit_lock_ = true
 
 [node name="score" type="Label" parent="UI/Control"]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 50.0
-offset_bottom = 135.0
+anchors_preset = -1
+anchor_left = 0.142
+anchor_right = 1.142
+anchor_bottom = 0.11
+offset_left = 0.359985
+offset_top = 34.0
+offset_right = 0.359863
+offset_bottom = 0.199989
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_ve7b5")
 theme_override_font_sizes/font_size = 70
@@ -59,11 +63,14 @@ script = ExtResource("5_gx2gi")
 metadata/_edit_lock_ = true
 
 [node name="background" type="TextureRect" parent="UI/Control"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.245
+anchor_bottom = 0.958
 offset_left = 77.0
 offset_top = 55.0
-offset_right = 545.0
-offset_bottom = 172.0
+offset_right = -1845.4
+offset_bottom = -862.64
 size_flags_horizontal = 4
 texture = ExtResource("6_pxifb")
 script = ExtResource("7_au5qa")
@@ -120,15 +127,15 @@ metadata/_edit_lock_ = true
 
 [node name="reload_ad" type="TextureRect" parent="UI/Control"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -64.0
-offset_top = -150.0
-offset_right = 64.0
-offset_bottom = -22.0
+anchors_preset = -1
+anchor_left = 0.612
+anchor_top = 0.861
+anchor_right = 0.679
+anchor_bottom = 0.98
+offset_left = -0.0400391
+offset_top = 0.119934
+offset_right = -0.680054
+offset_bottom = -0.400024
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("11_43mu4")
@@ -158,53 +165,53 @@ metadata/_edit_lock_ = true
 visible = false
 
 [node name="ControlsTouch" type="Node2D" parent="."]
-position = Vector2(92, 710)
+position = Vector2(108, 700)
 scale = Vector2(0.568, 0.554)
 script = ExtResource("15_numha")
 
 [node name="TouchScreenButtonW" type="TouchScreenButton" parent="ControlsTouch"]
-scale = Vector2(1, 1)
+position = Vector2(139.084, -34.296)
 texture_normal = ExtResource("16_a1vf7")
 texture_pressed = ExtResource("16_a1vf7")
 shape = SubResource("CircleShape2D_h2rnp")
 
 [node name="TouchScreenButtonA" type="TouchScreenButton" parent="ControlsTouch"]
-position = Vector2(-169.014, 194.946)
+position = Vector2(-29.9296, 160.65)
 scale = Vector2(0.915493, 0.927798)
 texture_normal = ExtResource("16_a1vf7")
 texture_pressed = ExtResource("16_a1vf7")
 shape = SubResource("CircleShape2D_h2rnp")
 
 [node name="TouchScreenButtonS" type="TouchScreenButton" parent="ControlsTouch"]
-position = Vector2(10.5634, 371.841)
+position = Vector2(149.648, 337.545)
 scale = Vector2(0.957746, 0.971119)
 texture_normal = ExtResource("16_a1vf7")
 texture_pressed = ExtResource("16_a1vf7")
 shape = SubResource("CircleShape2D_h2rnp")
 
 [node name="TouchScreenButtonD" type="TouchScreenButton" parent="ControlsTouch"]
-position = Vector2(202.465, 180.505)
+position = Vector2(341.549, 146.209)
 scale = Vector2(0.957746, 0.971119)
 texture_normal = ExtResource("16_a1vf7")
 texture_pressed = ExtResource("16_a1vf7")
 shape = SubResource("CircleShape2D_h2rnp")
 
 [node name="TouchScreenButtonF" type="TouchScreenButton" parent="ControlsTouch"]
-position = Vector2(2617.96, 254.513)
+position = Vector2(3478.87, 243.682)
 scale = Vector2(1.42958, 1.45487)
 texture_normal = ExtResource("16_a1vf7")
 texture_pressed = ExtResource("16_a1vf7")
 shape = SubResource("CircleShape2D_h2rnp")
 
 [node name="TouchScreenButtonR" type="TouchScreenButton" parent="ControlsTouch"]
-position = Vector2(2883.8, 110.108)
+position = Vector2(3772.89, 64.982)
 scale = Vector2(0.757042, 0.815884)
 texture_normal = ExtResource("16_a1vf7")
 texture_pressed = ExtResource("16_a1vf7")
 shape = SubResource("CircleShape2D_h2rnp")
 
 [node name="TouchScreenButtonE" type="TouchScreenButton" parent="ControlsTouch"]
-position = Vector2(2982.39, -1203.97)
+position = Vector2(3753.52, -1232.85)
 scale = Vector2(0.757042, 0.815884)
 texture_normal = ExtResource("16_a1vf7")
 texture_pressed = ExtResource("16_a1vf7")
