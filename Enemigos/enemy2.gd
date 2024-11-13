@@ -1,33 +1,44 @@
-extends Sprite2D
+extends RigidBody2D
 
-var velocidad = 130
+var velocidad = 40
 var mov = Vector2.ZERO
 var stunned = false
-var recuo = 4
-var hp = 4
+var recuo = 6
+var hp = 3
 var hit_sound = preload("res://snd_enemy_hit.wav")
 var DeathSnd = preload("res://snd_explosion.wav")
+var bullet = preload("res://Enemigos/Bullet_en.tscn")
 var isdead = false
 signal eliminado
+var tiempo_disparo = 0.0 
+var intervalo_disparo = 3.0 
 
 func _process(delta: float) -> void:
+	tiempo_disparo += delta
+	if hp > 0 and Global.player != null and tiempo_disparo >= intervalo_disparo and Global.ready_to_shoot:
+		var nueva_bala = bullet.instantiate()
+		nueva_bala.position = global_position  
+		get_parent().add_child(nueva_bala) 
+		print("Posición de la bala:", nueva_bala.global_position)
+		tiempo_disparo = 0.0
+		
 	if hp > 0:
 		if Global.player != null and stunned == false:
 			mov = global_position.direction_to(Global.player.global_position)
 			look_at(Global.player.global_position)
-			self.rotation_degrees = self.rotation_degrees - 90
+			$".".rotate(1.57)
 		elif stunned:
 			mov = lerp(mov, Vector2.ZERO, 0.3)
 		
-		global_position += mov * velocidad * delta
+		self.move_and_collide(mov*velocidad*delta)
 	else:
-		var sprite_enemigo = self
+		var sprite_enemigo = $enemigo
 		sprite_enemigo.texture = preload("res://sprite_enemy_2_destroy.png")
 		mov = Vector2.ZERO
 
 	if hp <= 0 and isdead == false:
-		Global.score+=10
 		isdead = true
+		Global.score+=10
 		var death = AudioStreamPlayer.new()
 		death.stream = DeathSnd
 		death.volume_db = -10 
@@ -42,7 +53,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("damage") and hp>0:
-		var sprite_enemigo = self
+		var sprite_enemigo = $enemigo
 		if sprite_enemigo:
 			sprite_enemigo.texture = preload("res://sprite_enemy_2_damage.png")
 		area.get_parent().queue_free()
@@ -53,11 +64,11 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		hit.stream = hit_sound 
 		add_child(hit) 
 		hit.play()  
-		$Timer.start()
+		$enemigo/Timer.start()
 
 
 func _on_timer_timeout() -> void:
-	var sprite_enemigo = self
+	var sprite_enemigo = $enemigo
 	sprite_enemigo.texture = preload("res://sprite_enemy_2.png")
 	stunned=false
 	

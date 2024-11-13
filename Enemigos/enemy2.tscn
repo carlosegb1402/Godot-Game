@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2151hjauxf1g"]
+
+[ext_resource type="Script" path="res://Enemigos/enemy2.gd" id="1_itqco"]
+[ext_resource type="Texture2D" uid="uid://crqbokxfylf5o" path="res://sprite_enemy_2.png" id="2_vswtx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kvj4n"]
+radius = 52.1536
+
+[node name="MainEnemy" type="RigidBody2D" groups=["enemigo"]]
+position = Vector2(-2, -1)
+gravity_scale = 0.0
+script = ExtResource("1_itqco")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_kvj4n")
+
+[node name="enemigo" type="Sprite2D" parent="."]
+position = Vector2(3.17415, -3.18434)
+rotation = 3.13999
+scale = Vector2(0.324838, 0.324838)
+texture = ExtResource("2_vswtx")
+
+[node name="Area2D" type="Area2D" parent="enemigo" groups=["enemigo"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemigo/Area2D"]
+polygon = PackedVector2Array(10, -116, -10, -116, -10, -114, -13.9, -111, -15.4, -112, -60.9, -112, -77.9, -94, -80, -94, -80, -74.9, -85.7, -70, -88, -70, -88, -63.3, -92, -61.2, -92, -52, -96.8, -52, -100, -48.8, -100, -47.6, -108, -45.6, -108, -44, -116.8, -44, -120, -40.8, -120, -39.6, -128, -37.6, -128, -31.2, -120.8, -24, -116, -24, -116, -18.8, -112, -16.8, -112, -11.2, -108.8, -8, -104, -8, -104, -3.1, -98, 1.89999, -98, 4, -91.2, 4, -84, -3.2, -80.8, 0, -76, 0, -76, 5, -84, 11, -84, 28.7, -70, 45.6, -70, 48, -58.8, 48, -56, 50.8, -56, 57.1, -42, 66.1, -42, 68, -22.8, 68, -20.8, 64, -20, 64, -20, 92.8, -8.8, 104, -7.5, 104, -6, 109, -6, 112, 4.8, 112, 8, 108.8, 8, 102.9, 20, 92.9, 20, 64, 20.8, 64, 22.8, 68, 41.2, 68, 43.2, 64, 48.8, 64, 56, 56.8, 56, 51.2, 60, 49.2, 60, 48, 68.9, 48, 77.9, 38, 80, 38, 80, 31.2, 84, 29.2, 84, 11, 76, 5, 76, 0, 80.9, 0, 84, -3.8, 84, -3.2, 91.2, 4, 96.8, 4, 104, -3.2, 104, -8, 108.8, -8, 112, -11.2, 112, -16.8, 116, -18.8, 116, -24, 120.9, -24, 125.9, -30, 128, -30, 128, -32.5, 126, -37.5, 126, -40, 119.2, -40, 117.2, -44, 106.7, -44, 96.7, -52, 92, -52, 92, -61.2, 88, -63.3, 88, -69, 80, -75, 80, -92.9, 62, -110, 62, -112.1, 14.9, -110, 13.8, -110, 10, -113.8)
+
+[node name="Timer2" type="Timer" parent="enemigo" groups=["enemigo"]]
+wait_time = 0.1
+one_shot = true
+
+[node name="Timer" type="Timer" parent="enemigo" groups=["enemigo"]]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="area_entered" from="enemigo/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="enemigo/Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="enemigo/Timer" to="." method="_on_timer_timeout"]

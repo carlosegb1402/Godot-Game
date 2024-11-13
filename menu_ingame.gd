@@ -23,9 +23,10 @@ func _on_resume_btn_pressed() -> void:
 
 
 func _on_exit_btn_pressed() -> void:
+	self.hide()
 	Global.ammor=31
 	Global.vida_player=3
 	Global.score=0
-	get_tree().paused=false
 	$btn_pressed_sound.play()
-	get_tree().change_scene_to_file("res://Menu Assets/menu.tscn")
+	get_tree().paused=false
+	get_tree().change_scene_to_file("res://MenuAssets/menu.tscn")

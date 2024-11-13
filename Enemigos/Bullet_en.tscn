@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwpr4cetxddo7"]
+
+[ext_resource type="Texture2D" uid="uid://dev8liqv3q6p0" path="res://Enemigos/bullet.png" id="1_4nlei"]
+[ext_resource type="Script" path="res://Enemigos/bullet_en.gd" id="2_7gw4m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqpl8"]
+size = Vector2(25.0047, 25.9846)
+
+[node name="Sprite2D" type="Sprite2D" groups=["bala_enemiga"]]
+position = Vector2(-2, -1)
+rotation = -1.5708
+texture = ExtResource("1_4nlei")
+script = ExtResource("2_7gw4m")
+metadata/_edit_group_ = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1.24041, -0.166862)
+scale = Vector2(1.4222, 1.35038)
+
+[node name="hitbox_balan_en" type="Area2D" parent="." groups=["bala_enemiga"]]
+rotation = -0.00118082
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_balan_en"]
+position = Vector2(-0.513027, -0.00769918)
+shape = SubResource("RectangleShape2D_tqpl8")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="hitbox_balan_en" to="." method="_on_hitbox_balan_en_area_entered"]

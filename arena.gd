@@ -1,12 +1,12 @@
 extends Node2D
 
-var enemie_1 = preload("res://enemy.tscn")
-var enemie_2= preload("res://enemy2.tscn")
+var enemie_1 = preload("res://Enemigos/enemy.tscn")
+var enemie_2 = preload("res://Enemigos/enemy2.tscn")
 var nuevo_puntero = preload("res://crosshair.png")
 var total_enemigos = 0
 var enemigos_eliminados = 0
 var current_wave = 0
-var enemies_per_wave = 5
+var enemies_per_wave = 3
 var enemie_on_scene=""
 var enemies_positions: Array = []
 
@@ -51,6 +51,7 @@ func start_wave() -> void:
 		current_wave += 1
 		total_enemigos = enemies_per_wave
 		spawn_enemies(total_enemigos)
+		Global.ready_to_shoot = true
 		
 	elif current_wave == 1:
 		enemie_on_scene=enemie_2
@@ -63,8 +64,9 @@ func start_wave() -> void:
 		await get_tree().create_timer(2).timeout 
 		$UI/Control/Label.hide()
 		current_wave += 1
-		total_enemigos = enemies_per_wave + 3
+		total_enemigos = enemies_per_wave + 2
 		spawn_enemies(total_enemigos)
+		Global.ready_to_shoot = true
 
 func spawn_enemies(count: int) -> void:
 	for i in range(count):
@@ -72,7 +74,7 @@ func spawn_enemies(count: int) -> void:
 		var valid_position: bool = false
 
 		while not valid_position:
-			var side = randi() % 4  # Elegir un lado al azar
+			var side = randi() % 4
 
 			match side:
 				0: # Izquierda

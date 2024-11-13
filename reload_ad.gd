@@ -22,5 +22,3 @@ func _process(delta: float) -> void:
 			blink_timer = 0.0  # Reiniciar el temporizador
 	else:
 		hide()  # Ocultar si ammo es 5 o más
-
-	# Detectar la tecla 'R'

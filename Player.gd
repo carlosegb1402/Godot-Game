@@ -24,7 +24,7 @@ func _ready() -> void:
 	sound_reload_ammo.stream = reload_ref
 	add_child(sound_reload_ammo)
 		
-	Global.player=self
+	Global.set_player(self)
 
 	
 
@@ -78,8 +78,9 @@ func _on_recall_timeout() -> void:
 	reload=true
 
 var hit_cooldown = false
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	
+
 	while area.is_in_group("enemigo") and not hit_cooldown:
 		if(Enemy.isdead == false):
 			Global.vida_player-=1
@@ -92,7 +93,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 
 
-
+func _exit_tree() -> void:
+	Global.clear_player()
 
 func _on_area_2d_area_exited(area):
 	enemy_exited = true

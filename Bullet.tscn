@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqpl8"]
 size = Vector2(96, 20)
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="Sprite2D" type="Sprite2D" groups=["damage"]]
 rotation = -1.5708
 texture = ExtResource("1_3b42o")
 script = ExtResource("2_nenrd")

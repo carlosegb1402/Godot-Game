@@ -1,16 +1,30 @@
 extends RigidBody2D
 
-var velocidad = 100
+var velocidad = 30
 var mov = Vector2.ZERO
 var stunned = false
 var recuo = 6
-var hp = 3
+var hp = 2
 var hit_sound = preload("res://snd_enemy_hit.wav")
 var DeathSnd = preload("res://snd_explosion.wav")
 var isdead = false
+var bullet = preload("res://Enemigos/Bullet_en.tscn")
+var tiempo_disparo = 0.0 
+var intervalo_disparo = 4.0 
 signal eliminado
 
+
 func _process(delta: float) -> void:
+	
+	tiempo_disparo += delta
+	if hp > 0 and Global.player != null and tiempo_disparo >= intervalo_disparo and Global.ready_to_shoot:
+		var nueva_bala = bullet.instantiate()
+		nueva_bala.position = global_position  
+		get_parent().add_child(nueva_bala) 
+		print("Posición de la bala:", nueva_bala.global_position)
+		tiempo_disparo = 0.0 
+			
+			
 	if hp > 0:
 		if Global.player != null and stunned == false:
 			mov = global_position.direction_to(Global.player.global_position)
