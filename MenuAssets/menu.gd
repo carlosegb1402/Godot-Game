@@ -42,8 +42,12 @@ func load_sound_settings() -> void:
 
 
 func _on_exit_btn_pressed() -> void:
+	$btn_pressed_sound.play()
+	await $btn_pressed_sound.finished
 	get_tree().quit()
 
 
 func _on_start_btn_pressed() -> void:
+	$btn_pressed_sound.play()
+	await $btn_pressed_sound.finished
 	get_tree().change_scene_to_file("res://Arena.tscn")
